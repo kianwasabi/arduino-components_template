@@ -1,14 +1,18 @@
+/*
+  Template for testing your Arduino components and wiring. 
+*/
+
 // Include Libraries
 #include <Arduino.h> 
 #include <LiquidCrystal_I2C.h>
-#include "CLASS.h"
+#include "Class.h"
 
 // Pin Definitions
 #define AAA  9
 #define BBB  8
 
 // Define LCD characteristics
-#define LCD_ADDRESS 0x27
+#define LCD_ADDRESS 0x27 //0x3f ...
 #define LCD_ROWS 4
 #define LCD_COLUMNS 20
 
@@ -68,12 +72,14 @@ void loop()
 {
   if (menuOption == '1') {
     //Code for testing Component #1
+    //Add your Code here, e.g.: 
     float var_obj1 = obj1.func();
     Serial.print(F("Output: "));
     Serial.print(var_obj1);
   }
   else if (menuOption == '2') {
     //Code for testing Component #1
+    //Add your Code here, e.g.: 
     float var_obj2 = obj2.func();
     Serial.print(F("Output: "));
     Serial.print(var_obj2);
