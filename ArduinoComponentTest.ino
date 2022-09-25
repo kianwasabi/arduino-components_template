@@ -21,9 +21,9 @@ CLASS obj1(AAA);
 CLASS obj2(BBB);
 
 // Define vars for testing menu
-const int timeout = 10000;
+const int timeout = 15000;
 char menuOption = 0;
-long time0;
+long time;
 boolean lcdprinted = false;
 
 // Setup circuit
@@ -41,12 +41,11 @@ void setup()
 char menu()
 {
   Serial.println(F("\nWhich component would you like to test?"));
-  Serial.println(F("(1) Component #1"));
-  Serial.println(F("(1) Component #2"));
-  Serial.println(F("(menu) send anything else or press on board reset button\n"));
+  Serial.println(F("[1] Component #1"));
+  Serial.println(F("[2] Component #2"));
+  Serial.println(F("[Menu] send anything else or press on board reset button\n"));
   while (!Serial.available());
 
-  // Read data from serial monitor if received
   while (Serial.available())
   {
     char c = Serial.read();
@@ -61,7 +60,7 @@ char menu()
         Serial.println(F("invalid input"));
         return 0;
       }
-      time0 = millis();
+      time = millis();
       return c;
     }
   }
@@ -84,7 +83,7 @@ void loop()
     Serial.print(F("Output: "));
     Serial.print(var_obj2);
   }
-  if (millis() - time0 > timeout)
+  if (millis() - time > timeout)
   {
     menuOption = menu();
   }
