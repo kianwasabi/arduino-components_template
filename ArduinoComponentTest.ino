@@ -11,7 +11,7 @@
 #define AAA  9
 #define BBB  8
 
-// Define LCD characteristics
+// Define Components characteristics (e.g. I2C LCD)
 #define LCD_ADDRESS 0x27 //0x3f ...
 #define LCD_ROWS 4
 #define LCD_COLUMNS 20
@@ -20,13 +20,13 @@
 CLASS obj1(AAA);
 CLASS obj2(BBB);
 
-// Define vars for testing menu
+// Define global vars (e.g. for testing menu)
 const int timeout = 15000;
 char menuOption = 0;
 long time;
 boolean lcdprinted = false;
 
-// Setup circuit
+// Setup circuit. Put your setup code here, to run once.
 void setup()
 {
   Serial.begin(9600);
@@ -66,7 +66,7 @@ char menu()
   }
 }
 
-// looping louie
+// Looping Louie! Put your main code here, to run repeatedly.
 void loop()
 {
   if (menuOption == '1') {
